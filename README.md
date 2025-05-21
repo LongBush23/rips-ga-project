@@ -9,7 +9,7 @@ bằng công cụ phân tích mã nguồn tĩnh RIPS.
 
 ## Cấu trúc dự án
 
-- `dvwa/`: source code DVWA.
+- `dvwa/`: source code DVWA (https://youtu.be/ce8Pd7WU-7o)
 - `rips/`: Dockerfile và script để chạy RIPS phân tích.
 - `ga/`: mã nguồn Python chạy thuật toán GA, bao gồm hàm fitness kết nối với RIPS.
 - `report/`: nơi lưu file kết quả phân tích JSON.
