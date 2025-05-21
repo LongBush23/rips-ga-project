@@ -1,0 +1,24 @@
+FROM php:7.4-apache
+
+# Cài các extension cần thiết cho PHP
+RUN docker-php-ext-install pdo pdo_mysql
+
+# Cài Composer (nếu cần)
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
+    php composer-setup.php && \
+    php -r "unlink('composer-setup.php');" && \
+    mv composer.phar /usr/local/bin/composer
+
+# Cài RIPS (giả sử có sẵn file RIPS.phar hoặc clone repo RIPS OSS)
+# Bạn cần thay đường dẫn và cách cài tùy RIPS bạn dùng
+
+# Copy mã nguồn DVWA vào thư mục web server
+COPY ../dvwa /var/www/html/
+
+# Cấp quyền
+RUN chown -R www-data:www-data /var/www/html
+
+# Expose port web
+EXPOSE 80
+
+CMD ["apache2-foreground"]
